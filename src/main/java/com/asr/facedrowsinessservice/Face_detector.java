@@ -1,7 +1,9 @@
 package com.asr.facedrowsinessservice;
 
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -37,10 +39,13 @@ public class Face_detector {
         is_running= false;
 
     }
-    public static  Face_detector getInstance(){
+    public static  Face_detector getInstance(Context context){
         if(instance == null){
             synchronized (Face_detector.class) {
                 if (instance == null) {
+                    if(ContextCompat.checkSelfPermission(context,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+                        return null;
+                    }
                     instance = new Face_detector();
                 }
             }
@@ -52,6 +57,9 @@ public class Face_detector {
     public Flowable<Boolean> start_face_detection(@NonNull Context context,int deviation_angle , float confidence_level){
 
         if(is_running){
+            return null;
+        }
+        if(ContextCompat.checkSelfPermission(context,Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
             return null;
         }
         is_running = true;
@@ -106,6 +114,9 @@ public class Face_detector {
         faceAnalysis = null;
         is_running = false;
     }
+
+
+
 
 
 

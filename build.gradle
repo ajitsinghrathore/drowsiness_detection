@@ -39,8 +39,8 @@ dependencies {
     implementation "androidx.camera:camera-lifecycle:1.1.0-alpha01"
     implementation "androidx.camera:camera-extensions:1.0.0-alpha21"
     implementation 'com.google.android.gms:play-services-mlkit-face-detection:16.1.4'
-    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
-    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    api 'io.reactivex.rxjava3:rxjava:3.0.0'
+    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
 
 
 
