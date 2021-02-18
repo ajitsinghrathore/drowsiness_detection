@@ -39,12 +39,14 @@ public class FaceAnalysis  implements ImageAnalysis.Analyzer {
     private final int deviation_angle;
     private final float confidence_level;
 
-    public FaceAnalysis(int deviation_angle,float confidence_level){
+    protected FaceAnalysis(int deviation_angle,float confidence_level){
         this.confidence_level = confidence_level;
         this.deviation_angle = deviation_angle;
     }
-
-
+    protected FaceAnalysis(){
+        deviation_angle = 30;
+        confidence_level = 0.2f;
+    }
 
 
     @Override

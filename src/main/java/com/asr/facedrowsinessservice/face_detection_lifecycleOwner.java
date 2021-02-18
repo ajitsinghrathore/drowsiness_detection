@@ -9,7 +9,7 @@ public class face_detection_lifecycleOwner implements LifecycleOwner {
 
     private final LifecycleRegistry lifecycleRegistry;
 
-    public face_detection_lifecycleOwner(){
+    protected face_detection_lifecycleOwner(){
         lifecycleRegistry = new LifecycleRegistry(this);
         lifecycleRegistry.setCurrentState(Lifecycle.State.CREATED);
     }
